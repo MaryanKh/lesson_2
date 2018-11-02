@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerControll : MonoBehaviour {
     public float speed = 6.0f;
@@ -8,12 +9,14 @@ public class PlayerControll : MonoBehaviour {
     public float gravity = 20.0f;
     public float rotationSpeed = 90;
     public int score = 0;
+    public Text countText;
     private int currentJump = 0;
     private bool canDobleJump = false;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     void Start() {
         controller = gameObject.GetComponent<CharacterController>();
+        Count();
     }
     void Update() {
         if (controller.isGrounded) {
@@ -47,11 +50,17 @@ public class PlayerControll : MonoBehaviour {
         if (hit.gameObject.tag == "Coin") {
             Destroy(hit.gameObject);
             score++;
+            Count();
         }
     }
 
-    private void OnGUI()
+    void Count()
+    {
+        countText.text = "Count: " + score.ToString();
+    }
+
+    /*private void OnGUI()
     {
         GUI.Box(new Rect(0, 0, 100, 30), "Count: " + score);
-    }
+    }*/
 }
