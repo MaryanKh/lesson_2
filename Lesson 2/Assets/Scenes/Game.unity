@@ -825,6 +825,8 @@ MonoBehaviour:
   gravity: 20
   rotationSpeed: 90
   score: 0
+  currentJump: 0
+  canDobleJump: 0
 --- !u!143 &830573985
 CharacterController:
   m_ObjectHideFlags: 0
