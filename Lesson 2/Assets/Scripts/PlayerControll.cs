@@ -8,8 +8,8 @@ public class PlayerControll : MonoBehaviour {
     public float gravity = 20.0f;
     public float rotationSpeed = 90;
     public int score = 0;
-    public int currentJump = 0;
-    public bool canDobleJump = false;
+    private int currentJump = 0;
+    private bool canDobleJump = false;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     void Start() {
